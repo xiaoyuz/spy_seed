@@ -18,6 +18,10 @@ def importUser(user):
 	redisBasicAction.set('user$nurl:' + user.nurl + ':id', user.id)
 	#sex set
 	redisBasicAction.setAdd('user$sexset:' + user.sex + ':id', user.id)
+	#regist ids
+	if redisBasicAction.setIsMember('user$idset', user.id) == False:
+		redisBasicAction.listPush('user$idlist', user.id)
+		redisBasicAction.setAdd('user$idset', user.id)
 
 def dropUser(user):
 	#id index
@@ -58,3 +62,8 @@ def getIdByUrl(url):
 		return redisBasicAction.get('user$nurl:' + url + ':id')
 	else:
 		return None
+
+def getIdByListIndex(index):
+	return redisBasicAction.listGet('user$idlist', index)
+
+# print getIdByListIndex(100)

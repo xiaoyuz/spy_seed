@@ -37,9 +37,12 @@ class User:
 				self.location = redisUserAction.getLocationById(self.id)
 
 	def updateInfo(self):
+		print 'Drop id: ' + self.id + '--------------------------'
 		redisUserAction.dropUser(self)
+		print 'Build user-------'
 		self.content = self.get_url_content(self.url)
 		self.setParamsWithContent()
+		print 'Import id: ' + self.id + '--------------------------'
 		redisUserAction.importUser(self)
 
 	def setParamsWithContent(self):

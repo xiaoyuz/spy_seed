@@ -19,17 +19,12 @@ def get(key):
 def delete(key):
 	return r.delete(key)
 
-# def listPush(list_name, value):
-# 	r = getConnection()
-# 	return r.rpush(list_name, value)
+def listPush(list_name, value):
+	return r.rpush(list_name, value)
 
-# def listGet(list_name, index):
-# 	r = getConnection()
-# 	return r.lindex(list_name, index)
+def listGet(list_name, index):
+	return r.lindex(list_name, index)
 
-# def listRemove(list_name, value):
-# 	r = getConnection()
-# 	return r.lrem(list_name, 0, value)
 def setAdd(set_name, value):
 	return r.sadd(set_name, value)
 
@@ -39,7 +34,10 @@ def setRemove(set_name, value):
 def setIsMember(set_name, value):
 	return r.sismember(set_name, value)
 
-print r.keys('us')
+# print r.keys('user$id:*:name')
+
+def getKeys(key_reg):
+	return r.keys(key_reg)
 
 
 # print setAdd('message', '1')
