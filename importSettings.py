@@ -16,4 +16,5 @@ def cur_file_dir():
 
 sys.path.append(cur_file_dir() + '/utils')
 sys.path.append(cur_file_dir() + '/spyRedis')
+sys.path.append(cur_file_dir() + '/spyCouchDB')
 sys.path.append(cur_file_dir() + '/crawler/utils')

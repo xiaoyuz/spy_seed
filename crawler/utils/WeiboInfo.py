@@ -10,6 +10,7 @@ import User
 import Comment
 import uselessChars
 import stringStructures
+import couchDBBasicAction
 
 default_encoding = 'utf8'
 if sys.getdefaultencoding() != default_encoding:
@@ -34,6 +35,8 @@ class WeiboInfo:#url(arg), author(arg), content, text, time, device, usermention
 		self.zannum = self.getZanNum()
 		self.commentsnum = self.getCommentsNum()
 		self.origin_author = self.getOriginAuthor()
+		db = couchDBBasicAction.getDB('wb_' + str(self.author.id))
+		couchDBBasicAction.insertDoc(db, 'time_' + self.time, self.toJson())
 
 	def getAuthorByWeiboContent(self):
 		author = User.User(self.url, self.weibo_content)####here the url is not used in fact
