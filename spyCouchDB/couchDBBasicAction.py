@@ -31,5 +31,5 @@ def updateDocByKey(db, key, doc_json):
 	deleteDocByKey(db, key)
 	insertDoc(db, key, doc_json)
 
-# db = getDB('test')
-# updateDocByKey(db, 'ins', {'ddd': 'ccc'})
+db = getDB('test')
+insertDoc(db, 'ins', {'ddd': 'ccc'})

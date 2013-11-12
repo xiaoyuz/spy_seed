@@ -37,9 +37,9 @@ def get_url_content(url):
 	return text
 
 users = {}
-user = User.User('http://weibo.com/u/2109690092')
+user = User.User('http://weibo.com/u/1883514540')
 # print user.toJson()
-weiboUrls = spy_in_onepage.get_weibo_urls(user,1, 3)
+weiboUrls = spy_in_onepage.get_weibo_urls(user,1, 5)
 for url in weiboUrls:
 	comments = Comment.getCommentsByWeiboUrl(url)
 	for x in comments:

@@ -36,7 +36,7 @@ class WeiboInfo:#url(arg), author(arg), content, text, time, device, usermention
 		self.commentsnum = self.getCommentsNum()
 		self.origin_author = self.getOriginAuthor()
 		db = couchDBBasicAction.getDB('wb_' + str(self.author.id))
-		couchDBBasicAction.insertDoc(db, 'time_' + self.time, self.toJson())
+		couchDBBasicAction.insertDoc(db, 'time_' + self.time + '_' + self.url, self.toJson())
 
 	def getAuthorByWeiboContent(self):
 		author = User.User(self.url, self.weibo_content)####here the url is not used in fact

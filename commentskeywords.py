@@ -38,7 +38,7 @@ def get_url_content(url):
 
 commentTopKeyWords = {}
 commentsAllText = ''
-user = User.User('http://weibo.com/u/1760242980')
+user = User.User('http://weibo.com/u/1883514540')
 # print user.toJson()
 
 weiboUrls = spy_in_onepage.get_weibo_urls(user)
